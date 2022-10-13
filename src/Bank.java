@@ -2,6 +2,8 @@ public class Bank {
     private int numero_conti;
     private SavingsAccount[] bankAccounts;
 
+
+
     private double totale_d = 0;
     private double bilancio = 0;
 
