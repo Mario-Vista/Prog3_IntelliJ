@@ -16,22 +16,30 @@
 
 public class BankAccount {
     private  double saldo;
-    private int accountNumber;
-    private int numberUpdate;
+    private double accountNumber;
+    private static double numberUpdate = 1000000000;
 
+    private int depositi_cont;
 
     //costruttore
-    public BankAccount (double initBalance) {
-        numberUpdate++;
+    public BankAccount () {
         accountNumber = numberUpdate;
-        saldo = initBalance;
+        numberUpdate++;
+        saldo = 0;
+    }
+    public double getAccountNumber(){
+        return accountNumber;
     }
 
     //metodo deposit
 
-    public double deposit(int qt) {
+    public double deposit(double qt) {
         this.saldo = this.saldo+qt;
+        depositi_cont++;
         return saldo;
+    }
+    public double getdepo(){
+        return depositi_cont;
     }
 
     //metodo withdraw
@@ -43,8 +51,13 @@ public class BankAccount {
 
 
     //metodo getBalance
-    public void getBalance() {
-        System.out.println(saldo);
+    public double getBalance() {
+        return saldo;
+    }
+
+    public void setBalance(double coefficiente)
+    {
+        saldo = saldo * coefficiente;
     }
 
 
