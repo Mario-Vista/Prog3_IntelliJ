@@ -1,4 +1,6 @@
 public class Bank {
+
+
     private int numero_conti;
     private SavingsAccount[] bankAccounts;
 
@@ -18,17 +20,18 @@ public class Bank {
         }
     }
 
+    public SavingsAccount getBankAccount(int id){return bankAccounts[id];}
 
-    //1 punto
-    private double balance() {
+    //1 poin(TESTED)
+    public double totBalance() {
         for (int i = 0; i < bankAccounts.length; i++) {
-            bilancio = bankAccounts[i].getBalance();
+            bilancio = bilancio + bankAccounts[i].getBalance();
         }
         return bilancio;
     }
 
     //2 punto
-    private double getTotDeposit() {
+    public double getTotDeposit() {
         for (int i = 0; i < bankAccounts.length; i++) {
             totale_d = bankAccounts[i].getdepo();
         }
@@ -36,12 +39,12 @@ public class Bank {
     }
 
     //3 punto
-    private double getcontocorrente(int id) {
+    public double getcontocorrente(int id) {
         return bankAccounts[id].getAccountNumber();
     }
 
     //4 punto
-    private void calcoloTasse() {
+    public void calcoloTasse() {
         for (int i = 0; i < bankAccounts.length; i++) {
             if (bankAccounts[i].getBalance() > 5000) {
                 bankAccounts[i].setBalance(0.1);

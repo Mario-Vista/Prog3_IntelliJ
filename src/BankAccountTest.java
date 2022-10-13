@@ -34,6 +34,27 @@ public class BankAccountTest {
              */
 
         Bank Ing = new Bank(10);
-        Ing.ge
+
+        Ing.getBankAccount(1).deposit(1000);
+        Ing.getBankAccount(1).deposit(2000);
+        Ing.getBankAccount(2).deposit(3000);
+        Ing.getBankAccount(3).deposit(4000);
+        Ing.getBankAccount(3).deposit(5000);
+        Ing.getBankAccount(3).deposit(6000);
+        Ing.getBankAccount(4).deposit(7000);
+        Ing.getBankAccount(5).deposit(8000);
+        Ing.getBankAccount(6).deposit(9000);
+
+
+
+
+        System.out.println("Il bilancio totale è " + Ing.totBalance());
+
+        System.out.println("Il numero totale di depositi è " + Ing.getTotDeposit());
+        //Ing.calcoloTasse()
+        //Ing.getcontocorrente();
+        //Ing.getTotDeposit();
+        //Ing.cambioValuta();
+
     }
 }
