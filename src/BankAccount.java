@@ -14,42 +14,42 @@
         base all’ultimo numero di conto associato*/
 
 
-public class BankAccount {
-    private  double saldo;
+public class BankAccount implements Measurable {
+    private double saldo;
     private double accountNumber;
     private static double numberUpdate = 1000000000;
 
     private int depositi_cont;
 
     //costruttore
-    public BankAccount (int initBalance) {
+    public BankAccount(int initBalance) {
         saldo = initBalance;
         accountNumber = numberUpdate;
         numberUpdate++;
-        saldo = 0;
     }
 
-    public BankAccount(){
+    public BankAccount() {
         this(0);
     }
-    public double getAccountNumber(){
+
+    public double getAccountNumber() {
         return accountNumber;
     }
 
     //metodo deposit
 
     public void deposit(double qt) {
-        this.saldo = this.saldo+qt;
+        this.saldo = this.saldo + qt;
         depositi_cont++;
     }
 
-    public double getDepo(){
+    public double getDepo() {
         return depositi_cont;
     }
 
     //metodo withdraw
     public void withdraw(double qt) {
-        this.saldo = this.saldo-qt;
+        this.saldo = this.saldo - qt;
     }
 
 
@@ -58,9 +58,12 @@ public class BankAccount {
         return saldo;
     }
 
-    public void setBalance(double coefficiente)
-    {
+    public void setBalance(double coefficiente) {
         saldo = coefficiente;
     }
 
+    @Override
+    public double getMeasure() {
+        return this.saldo;
+    }
 }
