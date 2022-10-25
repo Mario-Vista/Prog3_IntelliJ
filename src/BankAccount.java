@@ -22,10 +22,15 @@ public class BankAccount {
     private int depositi_cont;
 
     //costruttore
-    public BankAccount () {
+    public BankAccount (int initBalance) {
+        saldo = initBalance;
         accountNumber = numberUpdate;
         numberUpdate++;
         saldo = 0;
+    }
+
+    public BankAccount(){
+        this(0);
     }
     public double getAccountNumber(){
         return accountNumber;
@@ -33,20 +38,18 @@ public class BankAccount {
 
     //metodo deposit
 
-    public double deposit(double qt) {
+    public void deposit(double qt) {
         this.saldo = this.saldo+qt;
         depositi_cont++;
-        return saldo;
     }
-    public double getdepo(){
+
+    public double getDepo(){
         return depositi_cont;
     }
 
     //metodo withdraw
-    public double withdraw(int qt) {
+    public void withdraw(double qt) {
         this.saldo = this.saldo-qt;
-        return saldo;
-
     }
 
 
@@ -57,7 +60,7 @@ public class BankAccount {
 
     public void setBalance(double coefficiente)
     {
-        saldo = saldo * coefficiente;
+        saldo = coefficiente;
     }
 
 

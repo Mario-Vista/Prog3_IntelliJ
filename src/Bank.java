@@ -33,13 +33,13 @@ public class Bank {
     //2 punto
     public double getTotDeposit() {
         for (int i = 0; i < bankAccounts.length; i++) {
-            totale_d = bankAccounts[i].getdepo();
+            totale_d = totale_d+bankAccounts[i].getDepo();
         }
         return totale_d;
     }
 
     //3 punto
-    public double getcontocorrente(int id) {
+    public double getContoCorrente(int id) {
         return bankAccounts[id].getAccountNumber();
     }
 
@@ -47,16 +47,31 @@ public class Bank {
     public void calcoloTasse() {
         for (int i = 0; i < bankAccounts.length; i++) {
             if (bankAccounts[i].getBalance() > 5000) {
-                bankAccounts[i].setBalance(0.1);
+                bankAccounts[i].setBalance(bankAccounts[i].getBalance()-(bankAccounts[i].getBalance()*0.01));
             }
-
         }
     }
 
 
     //5 punto(euro-sterlina)
-    public void cambioValuta(int id){
-        bankAccounts[id].setBalance(0.88);
+    public void cambioValuta(int id, int valuta){
+
+        switch (valuta) {
+            case 1:
+                System.out.println(this.bankAccounts[id].getBalance()*1);
+                break;
+
+            case 2:
+                System.out.println(this.bankAccounts[id].getBalance()*2);
+                break;
+
+            case 3:
+                System.out.println(this.bankAccounts[id].getBalance()*3);
+                break;
+
+            default:
+                System.out.println("errore");
+        }
     }
 
 
