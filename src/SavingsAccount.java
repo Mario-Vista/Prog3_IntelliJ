@@ -4,6 +4,7 @@ public class SavingsAccount extends BankAccount {
     private double interest;
     private double interestRate;
 
+
     public void addInterest(){
      this.deposit((this.getBalance()*interestRate/100));
     }
