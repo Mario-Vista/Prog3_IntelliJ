@@ -5,7 +5,7 @@ public class CheckingAccount extends BankAccount{
     private static final int FREE_TRANSACTIONS = 3;
     private static final double TRANSACTION_FEE = 2.0;
 
-
+    //Nel costruttore passo il bilancio iniziale che c
     public CheckingAccount(int initBalance){
         super(initBalance);
         transactionCount = 0;
