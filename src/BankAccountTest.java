@@ -19,9 +19,11 @@ public class BankAccountTest {
 
         oggetto.getBalance();
 
-        oggetto.withdraw(50);
+        oggetto.withdraw(230);
 
         oggetto.getBalance();
+
+        oggetto.withdraw(10);
 
 
     }

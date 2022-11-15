@@ -49,7 +49,15 @@ public class BankAccount implements Measurable {
 
     //metodo withdraw
     public void withdraw(double qt) {
+        try{
+            if(this.saldo <= 0)
+                throw new NoFundsException();
+        } catch (NoFundsException exc){
+            System.out.println(exc.toString());
+        }
+
         this.saldo = this.saldo - qt;
+
     }
 
 
