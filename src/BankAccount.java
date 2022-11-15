@@ -49,12 +49,12 @@ public class BankAccount implements Measurable {
 
     //metodo withdraw
     public void withdraw(double qt) {
-        try{
-            if(this.saldo <= 0)
+        try {
+            if (qt > this.saldo)
                 throw new NoFundsException();
-                this.saldo = this.saldo - qt;
+            this.saldo = this.saldo - qt;
 
-        } catch (NoFundsException exc){
+        } catch (NoFundsException exc) {
             System.out.println(exc.toString());
         }
     }
@@ -72,5 +72,51 @@ public class BankAccount implements Measurable {
     @Override
     public double getMeasure() {
         return this.saldo;
+    }
+
+    //Classe anonima
+    CurrencyConverter JPYConvert = new CurrencyConverter() {
+        @Override
+        public double convert(double qt) {
+            return qt * 139.96;
+        }
+    };
+
+
+    CurrencyConverter GBPConvert = new CurrencyConverter() {
+        @Override
+        public double convert(double qt) {
+            return qt * 0.85;
+        }
+    };
+
+    public double getGBPConvert(double qt) {
+        return GBPConvert.convert(qt);
+    }
+
+    public double getJPYConvert(double qt) {
+        return JPYConvert.convert(qt);
+    }
+
+
+        public enum Currency {EUR, GBP, JPY};
+
+        public double convertTo(Currency value, double qt) {
+            switch (value) {
+
+                case EUR:
+                    EURConvert converti = new EURConvert();
+                    converti.convert(qt);
+
+                case GBP:
+                    GBPConvert.convert(qt);
+
+                case JPY:
+                    JPYConvert.convert(qt);
+
+
+            }
+            return qt;
+
     }
 }

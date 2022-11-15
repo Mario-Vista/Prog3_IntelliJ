@@ -12,6 +12,7 @@ public class BankAccountTest {
         //ESERCIZIO 1
         BankAccount oggetto = new BankAccount(200);
 
+
         oggetto.getBalance();
 
 
@@ -23,7 +24,18 @@ public class BankAccountTest {
 
         oggetto.getBalance();
 
+        //genera Eccezione
         oggetto.withdraw(10);
+
+        oggetto.deposit(39);
+
+        System.out.println(oggetto.getBalance());
+        System.out.println(oggetto.getGBPConvert(30));
+        System.out.println(oggetto.getJPYConvert(30));
+        //BankAccount.Enum.Currency.EUR
+        System.out.println(oggetto.convertTo(BankAccount.Currency.EUR, 10));
+
+
 
 
     }
