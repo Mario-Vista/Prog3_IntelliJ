@@ -3,7 +3,7 @@ public class NoFundsException extends Exception{
 
     @Override
     public String toString(){
-        return getMessage() + "minore di 0";
+        return getMessage() + " minore di 0";
     }
 
 }
