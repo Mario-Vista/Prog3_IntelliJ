@@ -52,12 +52,11 @@ public class BankAccount implements Measurable {
         try{
             if(this.saldo <= 0)
                 throw new NoFundsException();
+                this.saldo = this.saldo - qt;
+
         } catch (NoFundsException exc){
             System.out.println(exc.toString());
         }
-
-        this.saldo = this.saldo - qt;
-
     }
 
 
