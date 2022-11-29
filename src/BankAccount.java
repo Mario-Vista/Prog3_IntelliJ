@@ -14,7 +14,7 @@
         base all’ultimo numero di conto associato*/
 
 
-public class BankAccount implements Measurable {
+public class BankAccount implements Measurable{
     private double saldo;
     private double accountNumber;
     private static double numberUpdate = 1000000000;
@@ -38,7 +38,7 @@ public class BankAccount implements Measurable {
 
     //metodo deposit
 
-    public void deposit(double qt) {
+    public synchronized void deposit(double qt) {
         this.saldo = this.saldo + qt;
         depositi_cont++;
     }
@@ -48,7 +48,7 @@ public class BankAccount implements Measurable {
     }
 
     //metodo withdraw
-    public void withdraw(double qt) {
+    public synchronized void withdraw(double qt) {
         try {
             if (qt > this.saldo)
                 throw new NoFundsException();
