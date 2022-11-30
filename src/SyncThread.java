@@ -15,7 +15,7 @@ public class SyncThread extends Thread {
         if(!check){
             account.withdraw(qt);
             System.out.println("Hai prelevato: " + qt);
-            check = true;
+
         } else {
             account.deposit(qt);
             System.out.println("Hai depositato: " + qt);

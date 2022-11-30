@@ -15,14 +15,14 @@
 
 
 public class BankAccount implements Measurable{
-    private double saldo;
+    Double saldo;
     private double accountNumber;
     private static double numberUpdate = 1000000000;
 
     private int depositi_cont;
 
     //costruttore
-    public BankAccount(int initBalance) {
+    public BankAccount(double initBalance) {
         saldo = initBalance;
         accountNumber = numberUpdate;
         numberUpdate++;
@@ -38,9 +38,11 @@ public class BankAccount implements Measurable{
 
     //metodo deposit
 
-    public synchronized void deposit(double qt) {
-        this.saldo = this.saldo + qt;
-        depositi_cont++;
+    public  void deposit(double qt) {
+        synchronized (saldo) {
+            this.saldo = this.saldo + qt;
+            depositi_cont++;
+        }
     }
 
     public double getDepo() {
@@ -48,14 +50,16 @@ public class BankAccount implements Measurable{
     }
 
     //metodo withdraw
-    public synchronized void withdraw(double qt) {
-        try {
-            if (qt > this.saldo)
-                throw new NoFundsException();
-            this.saldo = this.saldo - qt;
+    public  void withdraw(double qt) {
+        synchronized (saldo) {
+            try {
+                if (qt > this.saldo)
+                    throw new NoFundsException();
+                this.saldo = this.saldo - qt;
 
-        } catch (NoFundsException exc) {
-            System.out.println(exc.toString());
+            } catch (NoFundsException exc) {
+                System.out.println(exc.toString());
+            }
         }
     }
 
