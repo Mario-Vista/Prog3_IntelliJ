@@ -10,6 +10,5 @@ public class SyncThreadTest {
         t1.join();
         t2.join();
         System.out.println(account.getBalance());
-
     }
 }
